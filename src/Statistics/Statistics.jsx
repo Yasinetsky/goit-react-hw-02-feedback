@@ -1,7 +1,6 @@
 import style from './Statistics.module.css';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import shortid from 'shortid';
 
 class Statistics extends Component {
   static defaultProps = {
@@ -15,6 +14,7 @@ class Statistics extends Component {
       bad: PropTypes.number.isRequired,
     }).isRequired,
     total: PropTypes.number.isRequired,
+    positivePercentage: PropTypes.number.isRequired,
   };
 
   render() {
@@ -24,24 +24,24 @@ class Statistics extends Component {
         <ul className={style.statistics__list}>
           {Object.entries(this.props.stat).map(([key, value]) => {
             return (
-              <li className={style.statistics__item} key={shortid.generate()}>
+              <li className={style.statistics__item}>
                 <span
                   className={style.statistics__name}
-                  key={shortid.generate()}
+                
                 >
                   {key}:{' '}
                 </span>
-                <span key={shortid.generate()}>{value}</span>
+                <span>{value}</span>
               </li>
             );
           })}
-          <li className={style.statistics__item} key={shortid.generate()}>
-            <span key={shortid.generate()}>Total: </span>
-            <span key={shortid.generate()}>{this.props.total}</span>
+          <li className={style.statistics__item}>
+            <span>Total: </span>
+            <span>{this.props.total}</span>
           </li>
-          <li className={style.statistics__item} key={shortid.generate()}>
-            <span key={shortid.generate()}>Positive feedback: </span>
-            <span key={shortid.generate()}>
+          <li className={style.statistics__item}>
+            <span>Positive feedback: </span>
+            <span>
               {this.props.positivePercentage}%
             </span>
           </li>
