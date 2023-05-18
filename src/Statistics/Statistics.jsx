@@ -9,8 +9,12 @@ class Statistics extends Component {
     total: 0,
   };
   static propTypes = {
-    stat: PropTypes.object.isRequired,
-    total: PropTypes.number,
+    stat: PropTypes.shape({
+      good: PropTypes.number.isRequired,
+      neutral: PropTypes.number.isRequired,
+      bad: PropTypes.number.isRequired,
+    }).isRequired,
+    total: PropTypes.number.isRequired,
   };
 
   render() {
