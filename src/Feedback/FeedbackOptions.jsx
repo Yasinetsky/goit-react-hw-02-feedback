@@ -6,10 +6,7 @@ class FeedbackOptions extends Component {
   static defaultProps = {
     options: [],
   };
-  static propTypes = {
-    options: PropTypes.array.isRequired,
-    onLeaveFeedback: PropTypes.func.isRequired,
-  };
+
 
   render() {
     return (
@@ -32,5 +29,11 @@ class FeedbackOptions extends Component {
     );
   }
 }
+
+FeedbackOptions.propTypes = {
+  options: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onLeaveFeedback: PropTypes.func.isRequired,
+};
+
 
 export default FeedbackOptions;
